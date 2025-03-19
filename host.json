@@ -1,0 +1,34 @@
+{
+  "version": "2.0",
+  "concurrency": { 
+    "dynamicConcurrencyEnabled": true, 
+    "snapshotPersistenceEnabled": true 
+  },
+  "functionTimeout": "00:10:00",
+  "logging": {
+    "logLevel": {
+      "default": "Information",
+      "Azure.Messaging.ServiceBus":"Warning",
+      "Azure.Storage.Blob": "Debug",
+      "Azure.Identity": "Debug",
+      "Host.Concurrency": "Trace"
+    },
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": false,
+        "excludedTypes": "Request"
+      }
+    }
+  },
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[4.*, 5.0.0)"
+  },
+  "extensions": {
+    "blobs": {},
+    "serviceBus": {
+      "autoCompleteMessages": true,
+      "maxAutoLockRenewalDuration": "00:05:00"
+    }
+  }
+}
